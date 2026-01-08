@@ -10,13 +10,6 @@ resource "aws_s3_bucket" "site" {
   bucket = local.bucket_name
 }
 
-resource "aws_s3_bucket_ownership_controls" "this" {
-  bucket = aws_s3_bucket.site.id
-  rule {
-    object_ownership = "BucketOwnerPreferred"
-  }
-}
-
 resource "aws_s3_bucket_website_configuration" "this" {
   bucket = aws_s3_bucket.site.id
 
